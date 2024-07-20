@@ -3,6 +3,7 @@
     "parserOptions": {
         "project": "./tsconfig.app.json"
       },
+      "ignorePatterns": ["vite.config.d.ts"],
       "rules": {
         "max-len": "off"
       }
