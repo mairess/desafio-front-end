@@ -1,0 +1,9 @@
+{
+    "extends": "@trybe/eslint-config-frontend/typescript",
+    "parserOptions": {
+        "project": "./tsconfig.app.json"
+      },
+      "rules": {
+        "max-len": "off"
+      }
+}
