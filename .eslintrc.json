@@ -5,6 +5,7 @@
       },
       "ignorePatterns": ["vite.config.d.ts"],
       "rules": {
-        "max-len": "off"
+        "max-len": "off",
+        "max-depth": "off"
       }
 }
