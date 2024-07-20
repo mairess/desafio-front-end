@@ -11,6 +11,9 @@ export default {
       fontFamily: {
         roboto: ['roboto', 'sans-serif'],
       },
+      boxShadow: {
+       'custom': '0 4px 4px 0 #00000040'
+      },
       colors: {
         primary: '#594ED2',
         secondary: '#5A84C0',
