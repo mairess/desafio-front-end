@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import elipse from '../assets/ellipse.svg';
 
 function TableHead() {
