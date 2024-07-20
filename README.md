@@ -67,7 +67,7 @@ npm install
 3. Run database:
 
 ```BASH
-# only if have done json-server installation
+# only if you have done json-server installation
 json-server --watch db.json
 
 # if you have not installed
