@@ -53,7 +53,7 @@ npx json-server db.json
 1. Clone repository:
 
 ```BASH
-git clone git@github.com:BeMobile/desafio-front-end.git
+git clone git@github.com:mairess/desafio-front-end.git
 
 cd desafio-front-end
 ```
@@ -100,7 +100,7 @@ Make sure you have the following installed on your machine:
 1. Clone repository:
 
 ```BASH
-git clone git@github.com:BeMobile/desafio-front-end.git
+git clone git@github.com:mairess/desafio-front-end.git
 
 cd desafio-front-end
 ```
