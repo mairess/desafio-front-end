@@ -26,20 +26,20 @@ export default {
         'gradient-primary': 'linear-gradient(to bottom, #5A84C0, #594ED2)',
       },
       fontSize: {
-        'h1': ['24px', { fontWeight: '500' }],
-        'h2': ['16px', { fontWeight: '500' }],
-        'h3': ['16px', { fontWeight: '400' }],
+        'h1': ['2rem', { fontWeight: '500' }],
+        'h2': ['1rem', { fontWeight: '500' }],
+        'h3': ['1rem', { fontWeight: '400' }],
       },
       spacing: {
-        'spacing-medium-80': '80px',
-        'spacing-medium-60': '60px',
-        'spacing-medium-40': '40px',
-        'spacing-medium-32': '32px',
-        'spacing-regular-28': '28px',
-        'spacing-regular-20': '20px',
-        'spacing-regular-16': '16px',
-        'spacing-little-08': '8px',
-        'spacing-little-04': '4px',
+        'spacing-medium-80': '5rem',
+        'spacing-medium-60': '3.75rem',
+        'spacing-medium-40': '2.5rem',
+        'spacing-medium-32': '2rem',
+        'spacing-regular-28': '1.75rem',
+        'spacing-regular-20': '1.25rem',
+        'spacing-regular-16': '1rem',
+        'spacing-little-08': '0.5rem',
+        'spacing-little-04': '0.25rem',
       },
     },
   },
@@ -48,6 +48,11 @@ export default {
       addUtilities({
         '.custom-placeholder::placeholder': {
           color: '#9E9E9E',
+        },
+        '@media (min-width: 1024px)': {
+          '.dropdown-content': {
+            display: 'none',
+          },
         },
       }, ['responsive', 'hover']);
     }),
