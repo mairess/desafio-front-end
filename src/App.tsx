@@ -1,18 +1,11 @@
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import TableHead from './components/TableHead';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <>
-      <Header />
-      <div
-        className="flex flex-col items-center px-spacing-regular-20"
-      >
-        <SearchBar />
-        <TableHead />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={ <Home /> } />
+    </Routes>
   );
 }
 
