@@ -9,7 +9,7 @@ function SearchBar() {
       <div className="relative w-full md:w-6/12">
 
         <input
-          className="relative w-full py-3 pl-4 pr-10 border rounded-lg custom-placeholder border-gray-neutral-10 shadow-custom"
+          className="relative w-full py-3 pl-4 pr-10 border rounded-lg custom-placeholder border-gray-neutral-10 shadow-custom-10"
           placeholder="Pesquisar"
           type="text"
           name="search"
