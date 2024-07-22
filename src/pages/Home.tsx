@@ -7,7 +7,7 @@ function Home() {
     <div>
       <Header />
 
-      <div className="flex flex-col items-center px-spacing-regular-20">
+      <div className="flex flex-col items-center pb-spacing-medium-80 px-spacing-regular-20">
 
         <SearchBar />
         <Table />

@@ -11,6 +11,9 @@ export default {
       fontFamily: {
         roboto: ['roboto', 'sans-serif'],
       },
+      size: {
+        'custom-size-08': '2.12rem'
+      },
       boxShadow: {
        'custom-10': '0 4px 4px 0 #00000025',
        'custom-00': '0 1px 2px 0 #00000020'
@@ -49,12 +52,7 @@ export default {
       addUtilities({
         '.custom-placeholder::placeholder': {
           color: '#9E9E9E',
-        },
-        '@media (min-width: 1024px)': {
-          '.dropdown-content': {
-            display: 'none',
-          },
-        },
+        }
       }, ['responsive', 'hover']);
     }),
   ],
