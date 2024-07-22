@@ -6,7 +6,7 @@ function SearchBar() {
 
       <div className="w-full mb-spacing-regular-20 text-h1 text-black-neutral">Funcionários</div>
 
-      <div className="relative w-full md:w-6/12">
+      <div className="relative w-full md:w-5/12">
 
         <input
           className="relative w-full py-3 pl-4 pr-10 border rounded-lg custom-placeholder border-gray-neutral-10 shadow-custom-10"

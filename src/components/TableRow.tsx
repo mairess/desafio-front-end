@@ -2,9 +2,14 @@
 import { useEffect, useState } from 'react';
 import iconChevronUp from '../assets/iconChevronUp.svg';
 import iconChevronDown from '../assets/iconChevronDown.svg';
-import userAvatar from '../assets/userAvatar.svg';
+import { EmployeeType } from '../types';
+import { formatDate, formatPhoneNumber } from '../utils/handleFormat';
 
-function TableRow() {
+type TableRowProps = {
+  employee: EmployeeType
+};
+
+function TableRow({ employee }: TableRowProps) {
   const [showDetails, setShowDetails] = useState(false);
   const [colSpan, setColSpan] = useState(3);
 
@@ -37,21 +42,24 @@ function TableRow() {
   return (
     <>
 
-      <tr className={ !showDetails ? 'border-b' : '' }>
+      <tr
+        onClick={ toggleDetails }
+        className={ !showDetails ? 'border-b cursor-pointer' : 'cursor-pointer' }
+        aria-expanded={ showDetails }
+        aria-controls={ `details-${employee.id}` }
+      >
 
-        <td className="text-h3 pl-spacing-regular-20">
-          <img src={ userAvatar } alt="user avatar" />
+        <td className="pl-spacing-regular-20">
+          <img className="rounded-full size-custom-size-08" src={ employee.image } alt="user avatar" />
         </td>
-        <td className="text-center sm:text-left">Maria</td>
-        <td className="hidden sm:table-cell text-h3">Lawyer</td>
-        <td className="hidden md:table-cell text-h3">10-08-2022</td>
-        <td className="hidden lg:table-cell text-h3">555555555555</td>
+        <td className="text-center sm:text-left">{employee.name}</td>
+        <td className="hidden sm:table-cell text-h3">{employee.job}</td>
+        <td className="hidden md:table-cell text-h3">{formatDate(employee.admission_date)}</td>
+        <td className="hidden lg:table-cell text-h3">{formatPhoneNumber(employee.phone)}</td>
         <td className="lg:hidden">
 
           <div className="flex justify-end cursor-pointer pr-spacing-regular-20 sm:justify-end">
-            <button onClick={ toggleDetails }>
-              <img src={ showDetails ? iconChevronUp : iconChevronDown } alt="elipse to hide row details" />
-            </button>
+            <img className="size-8" src={ showDetails ? iconChevronUp : iconChevronDown } alt="elipse to hide row details" />
           </div>
 
         </td>
@@ -66,7 +74,7 @@ function TableRow() {
 
               <div className="flex justify-between border-b border-dashed border-b-gray-neutral-10">
                 <h2 className="text-h2 text-black-neutral">Cargo</h2>
-                <h3 className="text-h3 text-black-neutral">Front-end</h3>
+                <h3 className="text-h3 text-black-neutral">{employee.job}</h3>
               </div>
 
             </td>
@@ -79,7 +87,7 @@ function TableRow() {
 
               <div className="flex justify-between border-b border-dashed border-b-gray-neutral-10">
                 <h2 className="text-h2 text-black-neutral">Data de admissão</h2>
-                <h3 className="text-h3 text-black-neutral">01/01/0001</h3>
+                <h3 className="text-h3 text-black-neutral">{formatDate(employee.admission_date)}</h3>
               </div>
 
             </td>
@@ -92,7 +100,7 @@ function TableRow() {
 
               <div className="flex justify-between border-b border-dashed border-b-gray-neutral-10 mb-spacing-regular-28">
                 <h2 className="text-h2 text-black-neutral">Telefone</h2>
-                <h3 className="text-h3 text-black-neutral">+55 (00) 00000-000</h3>
+                <h3 className="text-h3 text-black-neutral">{formatPhoneNumber(employee.phone)}</h3>
               </div>
 
             </td>
