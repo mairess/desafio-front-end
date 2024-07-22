@@ -1,11 +1,18 @@
 import TableHead from './TableHead';
-import TableBody from './TableBody';
+import TableRow from './TableRow';
 
 function Table() {
   return (
-    <table>
+    <table className="w-full text-left table-fixed shadow-custom-10">
+
       <TableHead />
-      <TableBody />
+
+      <tbody>
+
+        <TableRow />
+
+      </tbody>
+
     </table>
   );
 }
