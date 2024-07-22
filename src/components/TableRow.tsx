@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import iconChevronUp from '../assets/iconChevronUp.svg';
 import iconChevronDown from '../assets/iconChevronDown.svg';
+import userAvatar from '../assets/userAvatar.svg';
 
 function TableRow() {
   const [showDetails, setShowDetails] = useState(false);
@@ -36,9 +37,11 @@ function TableRow() {
   return (
     <>
 
-      <tr className="border-b">
+      <tr className={ !showDetails ? 'border-b' : '' }>
 
-        <td className="text-h3 pl-spacing-regular-20">Photo</td>
+        <td className="text-h3 pl-spacing-regular-20">
+          <img src={ userAvatar } alt="user avatar" />
+        </td>
         <td className="text-center sm:text-left">Maria</td>
         <td className="hidden sm:table-cell text-h3">Lawyer</td>
         <td className="hidden md:table-cell text-h3">10-08-2022</td>
@@ -57,11 +60,11 @@ function TableRow() {
 
       {showDetails && (
         <>
-          <tr className="border-b border-dashed border-b-gray-neutral-10 text-black-neutral">
+          <tr className="text-black-neutral">
 
             <td colSpan={ colSpan } className="px-spacing-regular-20 sm:hidden">
 
-              <div className="flex justify-between">
+              <div className="flex justify-between border-b border-dashed border-b-gray-neutral-10">
                 <h2 className="text-h2 text-black-neutral">Cargo</h2>
                 <h3 className="text-h3 text-black-neutral">Front-end</h3>
               </div>
@@ -70,11 +73,11 @@ function TableRow() {
 
           </tr>
 
-          <tr className="border-b border-dashed border-b-gray-neutral-10 text-black-neutral">
+          <tr className="text-black-neutral">
 
             <td colSpan={ colSpan } className="px-spacing-regular-20 md:hidden">
 
-              <div className="flex justify-between">
+              <div className="flex justify-between border-b border-dashed border-b-gray-neutral-10">
                 <h2 className="text-h2 text-black-neutral">Data de admissão</h2>
                 <h3 className="text-h3 text-black-neutral">01/01/0001</h3>
               </div>
@@ -83,11 +86,11 @@ function TableRow() {
 
           </tr>
 
-          <tr className="border-b border-dashed border-b-gray-neutral-10 text-black-neutral">
+          <tr className="text-black-neutral">
 
             <td colSpan={ colSpan } className="px-spacing-regular-20 lg:hidden">
 
-              <div className="flex justify-between">
+              <div className="flex justify-between border-b border-dashed border-b-gray-neutral-10 mb-spacing-regular-28">
                 <h2 className="text-h2 text-black-neutral">Telefone</h2>
                 <h3 className="text-h3 text-black-neutral">+55 (00) 00000-000</h3>
               </div>

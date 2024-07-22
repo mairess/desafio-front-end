@@ -6,3 +6,7 @@
 * {
     @apply font-roboto;
   }
+  
+  td {
+    @apply py-spacing-little-08
+  }
