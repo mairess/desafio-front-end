@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import QueryContext from './QueryContext';
+import EmployeeContext from './EmployeeContext';
 import { EmployeeType } from '../types';
 import fetchData from '../services/fetchData';
 
-type QueryProviderProps = {
+type EmployeeProviderProps = {
   children: React.ReactNode,
 };
 
-function QueryProvider({ children }: QueryProviderProps) {
+function EmployeeProvider({ children }: EmployeeProviderProps) {
   const [employees, setEmployees] = useState<EmployeeType[]>([]);
   const [query, setQuery] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -32,31 +32,23 @@ function QueryProvider({ children }: QueryProviderProps) {
     fetchEmployees();
   }, [refresh]);
 
-  const toggleRefresh = () => {
-    setRefresh(!refresh);
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
-
   return (
-    <QueryContext.Provider
+    <EmployeeContext.Provider
       value={ {
         employees,
+        setQuery,
         query,
         error,
         loading,
         setColSpan,
         colSpan,
         refresh,
-        toggleRefresh,
-        handleInputChange,
+        setRefresh,
       } }
     >
       {children}
-    </QueryContext.Provider>
+    </EmployeeContext.Provider>
   );
 }
 
-export default QueryProvider;
+export default EmployeeProvider;

@@ -1,15 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 import { EmployeeType } from '../types';
 import Loading from './Loading';
 import Error from './Error';
-import QueryContext from '../contexts/QueryContext';
+import EmployeeContext from '../context/EmployeeContext';
 import { removeSpecialChar } from '../utils/handleSpecialChar';
 
 function Table() {
-  const { toggleRefresh, setColSpan, colSpan, loading, error, employees, query } = useContext(QueryContext);
-  const [filteredEmployees, setFilteredEmployees] = useState<EmployeeType[]>(employees);
+  const { setColSpan, loading, error, employees, query } = useContext(EmployeeContext);
 
   useEffect(() => {
     const updateColSpan = () => {
@@ -33,15 +32,11 @@ function Table() {
     };
   }, []);
 
-  const filtered = employees.filter((employee) => (
+  const filteredEmployees = employees.filter((employee) => (
     removeSpecialChar(employee.job).includes(removeSpecialChar(query))
     || removeSpecialChar(employee.name).includes(removeSpecialChar(query))
     || removeSpecialChar(employee.phone).includes(removeSpecialChar(query))
   ));
-
-  useEffect(() => {
-    setFilteredEmployees(filteredEmployees);
-  }, [query]);
 
   return (
 
@@ -49,12 +44,12 @@ function Table() {
 
       <TableHead />
 
-      {loading && (<Loading colSpan={ colSpan } />)}
-      {error && (<Error colSpan={ colSpan } onRefresh={ toggleRefresh } error={ error } />)}
+      {loading && (<Loading />)}
+      {error && (<Error />)}
 
       {!error && !loading && (
         <tbody>
-          {filtered.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
+          {filteredEmployees.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
         </tbody>
       )}
 

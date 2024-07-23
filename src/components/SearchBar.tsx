@@ -1,9 +1,13 @@
 import { useContext } from 'react';
 import iconSearch from '../assets/iconSearch.svg';
-import QueryContext from '../contexts/QueryContext';
+import EmployeeContext from '../context/EmployeeContext';
 
 function SearchBar() {
-  const { query, handleInputChange } = useContext(QueryContext);
+  const { query, setQuery } = useContext(EmployeeContext);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-full md:flex-row my-spacing-regular-20">
