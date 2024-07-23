@@ -50,7 +50,7 @@ function TableRow({ employee }: TableRowProps) {
         aria-controls={ `details-${employee.id}` }
       >
 
-        <td className="pl-spacing-regular-20">
+        <td className="pl-spacing-regular-20 py-spacing-little-12">
           <img className="rounded-full size-custom-size-08" src={ employee.image } alt="user avatar" />
         </td>
         <td className="text-center sm:text-left">{employee.name}</td>
