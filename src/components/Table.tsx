@@ -1,39 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
-import fetchData from '../services/fetchData';
 import { EmployeeType } from '../types';
 import Loading from './Loading';
 import Error from './Error';
+import QueryContext from '../contexts/QueryContext';
+import { removeSpecialChar } from '../utils/handleSpecialChar';
 
 function Table() {
-  const [employees, setEmployees] = useState<EmployeeType[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [colSpan, setColSpan] = useState<number>(3);
-  const [refresh, setRefresh] = useState<boolean>(false);
-
-  useEffect(() => {
-    const fetchEmployees = async () => {
-      try {
-        setError(null);
-        setLoading(true);
-        const data = await fetchData('http://localhost:3000/employees');
-        setEmployees(data);
-        console.log(data);
-      } catch (err) {
-        setError('Erro ao buscar os funcionários...');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEmployees();
-  }, [refresh]);
-
-  const toggleRefresh = () => {
-    setRefresh(!refresh);
-  };
+  const { toggleRefresh, setColSpan, colSpan, loading, error, employees, query } = useContext(QueryContext);
+  const [filteredEmployees, setFilteredEmployees] = useState<EmployeeType[]>(employees);
 
   useEffect(() => {
     const updateColSpan = () => {
@@ -57,6 +33,16 @@ function Table() {
     };
   }, []);
 
+  const filtered = employees.filter((employee) => (
+    removeSpecialChar(employee.job).includes(removeSpecialChar(query))
+    || removeSpecialChar(employee.name).includes(removeSpecialChar(query))
+    || removeSpecialChar(employee.phone).includes(removeSpecialChar(query))
+  ));
+
+  useEffect(() => {
+    setFilteredEmployees(filteredEmployees);
+  }, [query]);
+
   return (
 
     <table className="w-full text-left table-fixed shadow-custom-10">
@@ -68,7 +54,7 @@ function Table() {
 
       {!error && !loading && (
         <tbody>
-          {employees.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
+          {filtered.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
         </tbody>
       )}
 

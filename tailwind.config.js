@@ -15,8 +15,9 @@ export default {
         'custom-size-08': '2.12rem'
       },
       boxShadow: {
-       'custom-10': '0 4px 4px 0 #00000025',
-       'custom-00': '0 1px 2px 0 #00000020'
+        'custom-00': '0 1px 1px 0 #00000020',
+        'custom-05': '0 1px 2px 0 #00000020',
+        'custom-10': '0 4px 4px 0 #00000025'
       },
       colors: {
         primary: '#594ED2',

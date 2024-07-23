@@ -43,7 +43,7 @@ function TableRow({ employee }: TableRowProps) {
     <>
 
       <tr
-        className={ !showDetails ? 'border-b' : '' }
+        className={ !showDetails ? 'shadow-custom-05' : '' }
         aria-expanded={ showDetails }
         aria-controls={ `details-${employee.id}` }
       >
@@ -95,7 +95,7 @@ function TableRow({ employee }: TableRowProps) {
 
           </tr>
 
-          <tr className="text-black-neutral">
+          <tr className="text-black-neutral shadow-custom-00">
 
             <td colSpan={ colSpan } className="px-spacing-regular-20 lg:hidden">
 

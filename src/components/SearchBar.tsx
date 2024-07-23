@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import iconSearch from '../assets/iconSearch.svg';
+import QueryContext from '../contexts/QueryContext';
 
 function SearchBar() {
+  const { query, handleInputChange } = useContext(QueryContext);
+
   return (
     <div className="flex flex-col items-center justify-center w-full md:flex-row my-spacing-regular-20">
 
@@ -13,7 +17,8 @@ function SearchBar() {
           placeholder="Pesquisar"
           type="text"
           name="search"
-          id="search"
+          value={ query }
+          onChange={ handleInputChange }
         />
 
         <div className="absolute top-0 flex items-center justify-center h-full right-4">
