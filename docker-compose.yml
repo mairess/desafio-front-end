@@ -3,7 +3,7 @@ services:
   db:
     image: node:18.20-alpine
     container_name: bemobile_db
-    command: sh -c "npm install -g json-server && json-server --watch /app/db.json --host"
+    command: sh -c "npm install -g json-server && json-server --watch /app/db.json"
     ports:
       - 3000:3000
     volumes:

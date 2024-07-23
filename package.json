@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 5173 --host",
-    "db": "npx json-server db.json",
+    "db": "npx json-server db.json --host 0.0.0.0",
     "dev:app": "npm run db & npm run dev",
     "start": "vite --open",
     "build": "tsc -b && vite build",
