@@ -1,8 +1,8 @@
-type ColSpanType = {
-  colSpan: number;
-};
+import { useContext } from 'react';
+import EmployeeContext from '../context/EmployeeContext';
 
-function Loading({ colSpan }: ColSpanType) {
+function Loading() {
+  const { colSpan } = useContext(EmployeeContext);
   return (
 
     <tbody>

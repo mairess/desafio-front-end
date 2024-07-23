@@ -43,6 +43,7 @@ export default {
         'spacing-regular-28': '1.75rem',
         'spacing-regular-20': '1.25rem',
         'spacing-regular-16': '1rem',
+        'spacing-little-12': '0.75rem',
         'spacing-little-08': '0.5rem',
         'spacing-little-04': '0.25rem',
       },

@@ -2,12 +2,12 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
-import QueryProvider from './contexts/QueryProvider.tsx';
+import EmployeeProvider from './context/EmployeeProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <QueryProvider>
+    <EmployeeProvider>
       <App />
-    </QueryProvider>
+    </EmployeeProvider>
   </BrowserRouter>,
 );

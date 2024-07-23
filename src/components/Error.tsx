@@ -1,13 +1,15 @@
 /* eslint-disable react/jsx-max-depth */
+import { useContext } from 'react';
 import iconErro from '../assets/iconError.svg';
+import EmployeeContext from '../context/EmployeeContext';
 
-type ColSpanType = {
-  colSpan: number;
-  onRefresh: () => void;
-  error: string
-};
+function Error() {
+  const { setRefresh, refresh, colSpan, error } = useContext(EmployeeContext);
 
-function Error({ colSpan, onRefresh, error }: ColSpanType) {
+  const toggleRefresh = () => {
+    setRefresh(!refresh);
+  };
+
   return (
     <tbody>
       <tr>
@@ -19,7 +21,7 @@ function Error({ colSpan, onRefresh, error }: ColSpanType) {
               {error}
             </p>
             <button
-              onClick={ onRefresh }
+              onClick={ toggleRefresh }
               className="text-white rounded-lg py-spacing-little-08 px-spacing-regular-16 shadow-custom-10 bg-secondary hover:bg-primary"
             >
               Recarregar
