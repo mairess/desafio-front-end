@@ -21,6 +21,7 @@ function TableRow({ employee }: TableRowProps) {
     const updateColSpan = () => {
       if (window.innerWidth >= 1024) {
         setColSpan(6);
+        setShowDetails(false);
       } else if (window.innerWidth >= 768) {
         setColSpan(5);
       } else if (window.innerWidth >= 640) {

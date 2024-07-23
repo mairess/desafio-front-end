@@ -8,29 +8,7 @@ import EmployeeContext from '../context/EmployeeContext';
 import { removeSpecialChar } from '../utils/handleSpecialChar';
 
 function Table() {
-  const { setColSpan, loading, error, employees, query } = useContext(EmployeeContext);
-
-  useEffect(() => {
-    const updateColSpan = () => {
-      if (window.innerWidth >= 1024) {
-        setColSpan(5);
-      } else if (window.innerWidth >= 768) {
-        setColSpan(5);
-      } else if (window.innerWidth >= 640) {
-        setColSpan(4);
-      } else {
-        setColSpan(3);
-      }
-    };
-
-    updateColSpan();
-
-    window.addEventListener('resize', updateColSpan);
-
-    return () => {
-      window.removeEventListener('resize', updateColSpan);
-    };
-  }, []);
+  const { loading, error, employees, query } = useContext(EmployeeContext);
 
   const filteredEmployees = employees.filter((employee) => (
     removeSpecialChar(employee.job).includes(removeSpecialChar(query))
