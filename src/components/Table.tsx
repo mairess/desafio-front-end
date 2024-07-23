@@ -1,6 +1,6 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import TableHead from './TableHead';
-import TableRow from './TableRow';
+import TableRows from './TableRow';
 import { EmployeeType } from '../types';
 import Loading from './Loading';
 import Error from './Error';
@@ -27,7 +27,7 @@ function Table() {
 
       {!error && !loading && (
         <tbody>
-          {filteredEmployees.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
+          {filteredEmployees.map((employee: EmployeeType) => (<TableRows employee={ employee } key={ employee.id } />))}
         </tbody>
       )}
 
