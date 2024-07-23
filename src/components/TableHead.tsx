@@ -3,7 +3,7 @@ import elipse from '../assets/ellipse.svg';
 
 function TableHead() {
   return (
-    <thead className="h-12 text-white text-h2 bg-gradient-primary shadow-custom-00">
+    <thead className="h-12 text-white text-h2 bg-gradient-primary shadow-custom-05">
       <tr>
         <th className="rounded-tl-lg pl-spacing-regular-20 ">FOTO</th>
         <th className="text-center sm:text-left">NOME</th>

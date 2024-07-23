@@ -15,15 +15,16 @@ export default {
         'custom-size-08': '2.12rem'
       },
       boxShadow: {
-       'custom-10': '0 4px 4px 0 #00000025',
-       'custom-00': '0 1px 2px 0 #00000020'
+        'custom-00': '0 1px 1px 0 #00000020',
+        'custom-05': '0 1px 2px 0 #00000020',
+        'custom-10': '0 4px 4px 0 #00000025'
       },
       colors: {
         primary: '#594ED2',
         secondary: '#5A84C0',
         'black-neutral': '#1C1C1C',
         'gray-neutral-00': '#F0F0F0',
-        'gray-neutral-10': '#DFDFDF ', 
+        'gray-neutral-10': '#DFDFDF', 
         'gray-neutral-20': '#9E9E9E'
       },
       backgroundImage: {

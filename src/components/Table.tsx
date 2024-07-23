@@ -1,31 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
-import fetchData from '../services/fetchData';
 import { EmployeeType } from '../types';
+import Loading from './Loading';
+import Error from './Error';
+import QueryContext from '../contexts/QueryContext';
+import { removeSpecialChar } from '../utils/handleSpecialChar';
 
 function Table() {
-  const [employees, setEmployees] = useState<EmployeeType[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { toggleRefresh, setColSpan, colSpan, loading, error, employees, query } = useContext(QueryContext);
+  const [filteredEmployees, setFilteredEmployees] = useState<EmployeeType[]>(employees);
 
   useEffect(() => {
-    const fetchEmployees = async () => {
-      try {
-        setError(null);
-        setLoading(true);
-        const data = await fetchData('http://localhost:3000/employees');
-        setEmployees(data);
-        console.log(data);
-      } catch (err) {
-        setError('Failed to fetch employees...');
-      } finally {
-        setLoading(false);
+    const updateColSpan = () => {
+      if (window.innerWidth >= 1024) {
+        setColSpan(5);
+      } else if (window.innerWidth >= 768) {
+        setColSpan(5);
+      } else if (window.innerWidth >= 640) {
+        setColSpan(4);
+      } else {
+        setColSpan(3);
       }
     };
 
-    fetchEmployees();
+    updateColSpan();
+
+    window.addEventListener('resize', updateColSpan);
+
+    return () => {
+      window.removeEventListener('resize', updateColSpan);
+    };
   }, []);
+
+  const filtered = employees.filter((employee) => (
+    removeSpecialChar(employee.job).includes(removeSpecialChar(query))
+    || removeSpecialChar(employee.name).includes(removeSpecialChar(query))
+    || removeSpecialChar(employee.phone).includes(removeSpecialChar(query))
+  ));
+
+  useEffect(() => {
+    setFilteredEmployees(filteredEmployees);
+  }, [query]);
 
   return (
 
@@ -33,9 +49,12 @@ function Table() {
 
       <TableHead />
 
-      {(loading || error) ? (<div className="ml-spacing-regular-20">{loading ? 'Loading...' : error}</div>) : (
+      {loading && (<Loading colSpan={ colSpan } />)}
+      {error && (<Error colSpan={ colSpan } onRefresh={ toggleRefresh } error={ error } />)}
+
+      {!error && !loading && (
         <tbody>
-          {employees.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
+          {filtered.map((employee: EmployeeType) => (<TableRow employee={ employee } key={ employee.id } />))}
         </tbody>
       )}
 
