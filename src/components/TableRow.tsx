@@ -43,8 +43,7 @@ function TableRow({ employee }: TableRowProps) {
     <>
 
       <tr
-        onClick={ toggleDetails }
-        className={ !showDetails ? 'border-b cursor-pointer' : 'cursor-pointer' }
+        className={ !showDetails ? 'border-b' : '' }
         aria-expanded={ showDetails }
         aria-controls={ `details-${employee.id}` }
       >
@@ -59,7 +58,9 @@ function TableRow({ employee }: TableRowProps) {
         <td className="lg:hidden">
 
           <div className="flex justify-end cursor-pointer pr-spacing-regular-20 sm:justify-end">
-            <img className="size-8" src={ showDetails ? iconChevronUp : iconChevronDown } alt="elipse to hide row details" />
+            <button onClick={ toggleDetails }>
+              <img className="size-8" src={ showDetails ? iconChevronUp : iconChevronDown } alt="elipse to hide row details" />
+            </button>
           </div>
 
         </td>

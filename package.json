@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --port 5173 --host",
     "db": "npx json-server db.json",
-    "dev-app": "npm run db & npm run dev",
+    "dev:app": "npm run db & npm run dev",
     "start": "vite --open",
     "build": "tsc -b && vite build",
     "lint": "eslint -c .eslintrc.json . --ext .js,.jsx,.ts,.tsx",

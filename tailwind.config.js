@@ -23,7 +23,7 @@ export default {
         secondary: '#5A84C0',
         'black-neutral': '#1C1C1C',
         'gray-neutral-00': '#F0F0F0',
-        'gray-neutral-10': '#DFDFDF ', 
+        'gray-neutral-10': '#DFDFDF', 
         'gray-neutral-20': '#9E9E9E'
       },
       backgroundImage: {
