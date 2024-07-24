@@ -1,14 +1,14 @@
-# Front-end Technical Challenge from [BeMobile](https://www.linkedin.com/company/betalenttech/)
+# Front-end Challenge from [BeMobile](https://www.linkedin.com/company/betalenttech/)
 
 [![codecov](https://codecov.io/gh/mairess/desafio-front-end/graph/badge.svg?token=G472MCK3OO)](https://codecov.io/gh/mairess/desafio-front-end)
 
-This is BeMobile's Front-end technical challenge repository for selection processes.
+This is BeMobile's Front-end challenge repository for selection processes.
 
-If you got here by BeMobile Technical Challenge Form you can go ahead and do the challenge. Otherwise you have to follow BeMobile on [Linkedin](https://br.linkedin.com/company/bemobiletech), [Instagram](https://www.instagram.com/bemobile.tech/), [Facebook](https://www.facebook.com/bemobile.tech) or in [Telegram](https://t.me/be_tech_community) to stay updated and ensure you don't miss any job opportunity.
+If you got here by BeMobile Form Challenge you can go ahead and do the challenge. Otherwise you have to follow BeMobile on [Linkedin](https://br.linkedin.com/company/bemobiletech), [Instagram](https://www.instagram.com/bemobile.tech/), [Facebook](https://www.facebook.com/bemobile.tech) or in [Telegram](https://t.me/be_tech_community) to stay updated and ensure you don't miss any job opportunity.
 
 ## Challenge
 
-BeMobile Technical Challenge consists of building a table with data coming from json-server API.
+BeMobile Challenge consists of building a table with data coming from json-server API.
 
 ### Mockup
 
@@ -26,11 +26,11 @@ The table must include the following columns:
 
 - Image (user thumbnail)
 - Name
-- Role/position (employee job title)
-- Date of Admission
+- Job (employee job title)
+- Admission
 - Phone
 
-It must be possible to search data on the table using an input field. The search input must allow search by role/position, name, and phone number.
+It must be possible to search data on the table using an input field. The search input must allow search by job, name, and phone number.
 
 Dates and phone numbers must be formatted on the front end. Do not change API db.json.
 
@@ -72,7 +72,7 @@ npm install
 # only if you have done json-server installation
 json-server --watch db.json
 
-# if you have not installed
+# if you have not installed yet
 npx json-server db.json
 
 ```
@@ -87,6 +87,19 @@ npm run dev
 
 ```BASH
 http://localhost:5173/
+```
+
+6. Run test:
+
+```BASH
+npm test
+```
+
+7. Run test coverage:
+
+```BASH
+npm run coverage
+
 ```
 
 ## Run with Docker
@@ -117,4 +130,22 @@ docker compose up -d --build
 
 ```BASH
 http://localhost:5173/
+```
+
+4. Access application at:
+
+```BASH
+http://localhost:5173/
+```
+
+5. Run test:
+
+```BASH
+npm test
+```
+
+6. Run test coverage:
+
+```BASH
+npm run coverage
 ```
