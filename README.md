@@ -1,5 +1,7 @@
 # Front-end Technical Challenge from [BeMobile](https://www.linkedin.com/company/betalenttech/)
 
+[![codecov](https://codecov.io/gh/mairess/desafio-front-end/graph/badge.svg?token=G472MCK3OO)](https://codecov.io/gh/mairess/desafio-front-end)
+
 This is BeMobile's Front-end technical challenge repository for selection processes.
 
 If you got here by BeMobile Technical Challenge Form you can go ahead and do the challenge. Otherwise you have to follow BeMobile on [Linkedin](https://br.linkedin.com/company/bemobiletech), [Instagram](https://www.instagram.com/bemobile.tech/), [Facebook](https://www.facebook.com/bemobile.tech) or in [Telegram](https://t.me/be_tech_community) to stay updated and ensure you don't miss any job opportunity.
