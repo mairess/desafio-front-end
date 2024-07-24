@@ -12,7 +12,7 @@ function SearchBar() {
   return (
     <div className="flex flex-col items-center justify-center w-full md:flex-row my-spacing-regular-20">
 
-      <div className="w-full mb-spacing-regular-20 text-h1 text-black-neutral">Funcionários</div>
+      <h1 className="w-full mb-spacing-regular-20 text-h1 text-black-neutral">Funcionários</h1>
 
       <div className="relative w-full md:w-5/12">
 
