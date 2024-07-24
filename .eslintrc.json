@@ -3,7 +3,10 @@
     "parserOptions": {
         "project": "./tsconfig.app.json"
       },
-      "ignorePatterns": ["vite.config.d.ts"],
+      "ignorePatterns": [
+        "vite.config.d.ts",
+        "coverage/**"
+      ],
       "rules": {
         "max-len": "off",
         "max-depth":"off"
