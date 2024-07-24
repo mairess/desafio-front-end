@@ -14,7 +14,12 @@ export default defineConfig({
     reporters: ['verbose'],
     coverage: {
       reporter: ['text', 'json', 'html'],
-      provider: 'v8'
+      provider: 'v8',
+      exclude: [
+        'postcss.config.js',
+        'tailwind.config.js',
+        'vite-env.d.ts'
+      ]
     }
   },
 })

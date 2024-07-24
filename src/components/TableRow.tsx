@@ -61,7 +61,7 @@ function TableRow({ employee }: TableRowProps) {
 
           <div className="flex justify-end cursor-pointer pr-spacing-regular-20 sm:justify-end">
             <button onClick={ toggleDetails }>
-              <img className="size-8" src={ showDetails ? iconChevronUp : iconChevronDown } alt="elipse to hide row details" />
+              <img className="size-8" src={ showDetails ? iconChevronUp : iconChevronDown } alt="pointing button to hide ro show row details" />
             </button>
           </div>
 
