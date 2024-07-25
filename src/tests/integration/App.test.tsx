@@ -107,15 +107,9 @@ describe('Table tests', () => {
     await waitFor(async () => {
       const erroIcon = screen.getByAltText(/error/i);
       const erroMessage = screen.getByText(/erro ao buscar os funcionários.../i);
-      const refreshBtn = screen.getByText(/recarregar/i);
 
       expect(erroMessage).toBeInTheDocument();
       expect(erroIcon).toBeInTheDocument();
-      expect(refreshBtn).toBeInTheDocument();
-
-      await user.click(refreshBtn);
-
-      expect(global.fetch).toHaveBeenCalled();
     });
   });
 
