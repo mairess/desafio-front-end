@@ -1,14 +1,34 @@
 /* eslint-disable react/jsx-max-depth */
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import iconErro from '../assets/iconError.svg';
 import EmployeeContext from '../context/EmployeeContext';
 
 function Error() {
-  const { setRefresh, refresh, colSpan, error } = useContext(EmployeeContext);
+  const { setRefresh, refresh, setColSpan, colSpan, error } = useContext(EmployeeContext);
 
   const toggleRefresh = () => {
     setRefresh(!refresh);
   };
+
+  useEffect(() => {
+    const updateColSpan = () => {
+      if (window.innerWidth >= 768) {
+        setColSpan(5);
+      } else if (window.innerWidth >= 640) {
+        setColSpan(4);
+      } else {
+        setColSpan(3);
+      }
+    };
+
+    updateColSpan();
+
+    window.addEventListener('resize', updateColSpan);
+
+    return () => {
+      window.removeEventListener('resize', updateColSpan);
+    };
+  }, []);
 
   return (
     <tbody>
@@ -20,12 +40,6 @@ function Error() {
               {' '}
               {error}
             </p>
-            <button
-              onClick={ toggleRefresh }
-              className="text-white rounded-lg py-spacing-little-08 px-spacing-regular-16 shadow-custom-10 bg-secondary hover:bg-primary"
-            >
-              Recarregar
-            </button>
           </div>
         </td>
       </tr>
