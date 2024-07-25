@@ -4,11 +4,7 @@ import iconErro from '../assets/iconError.svg';
 import EmployeeContext from '../context/EmployeeContext';
 
 function Error() {
-  const { setRefresh, refresh, setColSpan, colSpan, error } = useContext(EmployeeContext);
-
-  const toggleRefresh = () => {
-    setRefresh(!refresh);
-  };
+  const { setColSpan, colSpan, error } = useContext(EmployeeContext);
 
   useEffect(() => {
     const updateColSpan = () => {
@@ -28,7 +24,7 @@ function Error() {
     return () => {
       window.removeEventListener('resize', updateColSpan);
     };
-  }, []);
+  }, [setColSpan]);
 
   return (
     <tbody>

@@ -22,7 +22,7 @@ function Loading() {
     return () => {
       window.removeEventListener('resize', updateColSpan);
     };
-  }, []);
+  }, [setColSpan]);
 
   return (
 

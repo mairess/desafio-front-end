@@ -98,7 +98,7 @@ describe('Table tests', () => {
   it('Should render Error component when fail to fetch.', async () => {
     global.fetch = vi.fn().mockRejectedValueOnce(new Error('Failed to fetch'));
 
-    const { user } = renderWithRouter(
+    renderWithRouter(
       <EmployeeProvider>
         <App />
       </EmployeeProvider>,
